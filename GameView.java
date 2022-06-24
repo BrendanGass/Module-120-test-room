@@ -5,21 +5,34 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
-
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 public class GameView extends JFrame implements ActionListener {
-    public void showDialog() {
-        JFrame frame = new JFrame("CyberDice");
-        frame.setSize(300, 300);
-        frame.setLocation(5, 5);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    
-        
-        
-    
-        frame.show();
-    }
+      private JPanel pnl1 = new JPanel(); //Panel, welches andere Panels aufnimmt
+      private int y = 0;
 
-  public void actionPerformed(ActionEvent e) {
-  }
+      public GameView() {
+        this.setLayout(null);
+        pnl1.setLayout(null);
+        pnl1.setSize(210, 210);
+
+        this.setSize(450, 450);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setVisible(true);
+
+      }
+      @Override
+      public void actionPerformed(ActionEvent e) {
+  
+      }
+        
 }
+
+
+
+
+
+
+
+
