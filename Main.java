@@ -5,6 +5,7 @@ import javax.swing.SwingConstants;
 
 class Main {
   public static void main(String[] args) {
-    GameView gui = new GameView();
+    Start gui = new Start();
+    gui.showDialog();
   }
 }

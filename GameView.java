@@ -10,14 +10,24 @@ import javax.swing.JScrollPane;
 
 public class GameView extends JFrame implements ActionListener {
       private JPanel pnl1 = new JPanel(); //Panel, welches andere Panels aufnimmt
-      private int y = 0;
+
+
+      private JButton roundnew = new JButton("start a new round");
+      private JLabel player1 = new JLabel("Player 1");
+      private JLabel player2 = new JLabel("Player 2");
 
       public GameView() {
         this.setLayout(null);
-        pnl1.setLayout(null);
-        pnl1.setSize(210, 210);
+        this.setTitle("CyberDice");
+        roundnew.setBounds(510, 610, 170, 40);
+        player1.setBounds(20, 30, 100, 20);
+        player2.setBounds(340, 30, 100, 20);
 
-        this.setSize(450, 450);
+        this.add(roundnew);
+        this.add(player1);
+        this.add(player2);
+
+        this.setSize(690, 690);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setVisible(true);
 
