@@ -1,21 +1,19 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JLabel;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JTextField;
-
+import javax.swing.*;
+import java.awt.*;
+  
 public class Start extends JFrame implements ActionListener {
 
-  JButton startgame = new JButton("Start");
-  JButton rules = new JButton("Rules");
+  JButton startprg = new JButton("Start");
+
   JButton quit = new JButton("Quit");
-  JLabel player1Label = new JLabel("Player 1");
-  JLabel player2Label = new JLabel("Player 2");
-  JTextField player1 = new JTextField();
-  JTextField player2 = new JTextField();
-  public String name1;
-  public String name2;
+  JLabel budgetLabel = new JLabel("Input your budget!");
+  JLabel title = new JLabel("PC Building Assistant");
+  JTextField budgetfield = new JTextField();
+
+  public String budget;
+
   
   
 
@@ -23,47 +21,52 @@ public class Start extends JFrame implements ActionListener {
   public void showDialog() {
     setLayout(null);
 
-    player1.setBounds(15, 100, 250, 20);
-    player2.setBounds(15, 150, 250, 20);
-    player1Label.setBounds(15, 80, 250, 20);
-    player2Label.setBounds(15, 130, 250, 20);
-    startgame.setBounds(35, 185, 200, 40);
-    rules.setBounds(35, 240, 200, 40);
-    quit.setBounds(35, 295, 200, 40);
+    budgetfield.setBounds(75, 200, 250, 20);
 
-    this.add(player1);
-    this.add(player2);
-    this.add(player1Label);
-    this.add(player2Label);
-    this.add(startgame);
-    this.add(rules);
+    budgetLabel.setBounds(75, 180, 250, 20);
+//    title.setBounds(75, 100, 250, 20);
+    title.setBounds(30, 70, 400, 50);
+    
+    startprg.setBounds(100, 240, 200, 40);
+
+    quit.setBounds(100, 295, 200, 40);
+
+    title.setFont(new Font("Arial", Font.PLAIN, 32));
+    
+    this.add(title);
+    this.add(budgetfield);
+
+    this.add(budgetLabel);
+
+    this.add(startprg);
+
     this.add(quit);
 
-    startgame.addActionListener(this);
-    rules.addActionListener(this);
+    startprg.addActionListener(this);
+
     quit.addActionListener(this);
   
-    setTitle("CyberDice");
+    setTitle("PC Building Assistant");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    setSize(280,400);
+    setSize(400,400);
     setVisible(true); 
 
     }
 
   public void actionPerformed(ActionEvent e) {
-    if (e.getSource() == startgame) {
-      name1 = player1.getText();
-      name2 = player2.getText();
-      GameView gameView = new GameView(name1, name2);
+ //   if (e.getSource() == quit) {
+ //     dispose();
+//    } 
+    if (e.getSource() == startprg) {
+      budget = budgetfield.getText();
+      Select gui = new Select(budget);
+
       dispose();
       
     } else if (e.getSource() == quit) {
       dispose();
-    } else if (e.getSource() == rules) {
-      Rules gui = new Rules();
-      gui.showDialog();;
-    }
     
+    }
   }
 
 }
